@@ -1,10 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "pnpm run build",
+  "buildCommand": "pnpm turbo run build --filter=@cascoder/playground",
   "outputDirectory": "apps/playground/dist",
   "installCommand": "pnpm install",
   "framework": null,
-  "ignoreCommand": "",
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ],
