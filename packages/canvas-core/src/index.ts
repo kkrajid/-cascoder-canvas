@@ -33,7 +33,7 @@ export type {
 export type {
   Rect, Point, ViewportState, RendererExportOptions, RendererOptions,
   HandlePosition, TransformEvent, RendererPointerEvent,
-  RendererEventMap, RendererEventType, RendererAdapter,
+  RendererEventMap, RendererEventType,
 } from './types/renderer';
 
 // Store
@@ -68,6 +68,13 @@ export type { AutosaveConfig, SaveStatus } from './engines/AutosaveEngine';
 // Align & Distribute
 export { alignNodes, distributeNodes } from './engines/AlignEngine';
 export type { AlignDirection, DistributeDirection } from './engines/AlignEngine';
+
+// Clipboard
+export { ClipboardManager, clipboard } from './clipboard/ClipboardManager';
+
+// Templates
+export { TemplateEngine } from './templates/TemplateEngine';
+export type { CanvasTemplate } from './templates/TemplateEngine';
 
 // Utils
 export * from './utils/math';

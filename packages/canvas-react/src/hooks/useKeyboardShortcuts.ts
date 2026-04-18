@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import { useEditorContext } from '../components/EditorProvider';
 import { useEditor } from './useEditor';
 import { generateId } from '@cascoder/canvas-core';
+import { clipboard } from '@cascoder/canvas-core';
+import type { CanvasNode } from '@cascoder/canvas-core';
 
 export function useKeyboardShortcuts() {
   const { store } = useEditorContext();
@@ -53,37 +55,44 @@ export function useKeyboardShortcuts() {
         return;
       }
 
-      // ---- Copy / Paste ----
+      // ---- Copy / Paste / Cut ----
       if (isCtrl && e.key === 'c') {
         e.preventDefault();
-        // Store selected node data for paste
         const selectedNodes = state.selectedIds.map((id) => state.nodes[id]).filter(Boolean);
         if (selectedNodes.length > 0) {
-          (window as any).__canvasClipboard = structuredClone(selectedNodes);
+          clipboard.copy(selectedNodes as CanvasNode[]);
+        }
+        return;
+      }
+      if (isCtrl && e.key === 'x') {
+        e.preventDefault();
+        const selectedNodes = state.selectedIds.map((id) => state.nodes[id]).filter(Boolean);
+        if (selectedNodes.length > 0) {
+          clipboard.cut(selectedNodes as CanvasNode[]);
+          editor.deleteSelected();
         }
         return;
       }
       if (isCtrl && e.key === 'v') {
         e.preventDefault();
-        const clipboard = (window as any).__canvasClipboard as any[] | undefined;
-        if (clipboard && clipboard.length > 0) {
-          const newIds: string[] = [];
-          for (const node of clipboard) {
-            const newId = generateId(node.type.slice(0, 3));
-            const newNode = {
-              ...structuredClone(node),
-              id: newId,
-              x: node.x + 20,
-              y: node.y + 20,
-              pageId: state.activePageId,
-              createdAt: Date.now(),
-              updatedAt: Date.now(),
-            };
-            state.addNode(newNode);
-            newIds.push(newId);
-          }
-          state.selectNodes(newIds);
+        if (!clipboard.hasContent()) return;
+        const buffer = clipboard.getBuffer();
+        const newIds: string[] = [];
+        for (const node of buffer) {
+          const newId = generateId(node.type.slice(0, 3));
+          const newNode = {
+            ...structuredClone(node),
+            id: newId,
+            x: node.x + 20,
+            y: node.y + 20,
+            pageId: state.activePageId,
+            createdAt: Date.now(),
+            updatedAt: Date.now(),
+          };
+          state.addNode(newNode);
+          newIds.push(newId);
         }
+        state.selectNodes(newIds);
         return;
       }
 
