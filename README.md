@@ -274,14 +274,16 @@ pnpm run test
 - [x] Plugin architecture
 - [x] Autosave with IndexedDB
 - [x] PNG export
+- [x] Template engine
+- [x] `<CanvasEditor />` turnkey component
+- [x] ClipboardManager (copy/cut/paste)
+- [x] 73 unit tests
 - [ ] Rich text editing (inline bold/italic)
 - [ ] SVG & PDF export
 - [ ] Font manager
 - [ ] Image crop tool
-- [ ] Template engine
 - [ ] Gradient rendering
 - [ ] Collaboration (Y.js)
-- [ ] `<CanvasEditor />` turnkey component
 
 ## License
 
