@@ -1,6 +1,6 @@
 {
   "name": "@cascoder/canvas-react",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "React components, hooks, and Konva renderer for @cascoder/canvas design editor",
   "type": "module",
   "main": "./dist/index.cjs",

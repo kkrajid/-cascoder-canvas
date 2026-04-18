@@ -1,6 +1,6 @@
 {
   "name": "@cascoder/canvas-core",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "Core engine for @cascoder/canvas — scene graph, state management, history, snapping, alignment",
   "type": "module",
   "main": "./dist/index.cjs",
