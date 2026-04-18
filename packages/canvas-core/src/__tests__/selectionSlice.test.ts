@@ -13,7 +13,7 @@ type Store = StoreApi<EditorStore>;
 function makeStore(): Store {
   const store = createEditorStore();
   const state = store.getState();
-  if (state.pages.length === 0) state.addPage('instagram-post');
+  if (state.pages.length === 0) state.addPage();
   return store;
 }
 

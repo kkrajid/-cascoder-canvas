@@ -15,7 +15,7 @@ function makeStore(): Store {
   // Ensure a page exists for testing
   const state = store.getState();
   if (state.pages.length === 0) {
-    state.addPage('instagram-post');
+    state.addPage();
   }
   return store;
 }

@@ -13,7 +13,7 @@ type Store = StoreApi<EditorStore>;
 function makeStore(): Store {
   const store = createEditorStore();
   const state = store.getState();
-  if (state.pages.length === 0) state.addPage('instagram-post');
+  if (state.pages.length === 0) state.addPage();
   return store;
 }
 
@@ -30,12 +30,12 @@ describe('PageSlice', () => {
 
   it('should add a new page', () => {
     const before = store.getState().pages.length;
-    store.getState().addPage('a4-portrait');
+    store.getState().addPage();
     expect(store.getState().pages.length).toBe(before + 1);
   });
 
   it('should set active page', () => {
-    store.getState().addPage('presentation');
+    store.getState().addPage();
     const pages = store.getState().pages;
     const secondPage = pages[pages.length - 1];
     store.getState().setActivePage(secondPage.id);
@@ -53,7 +53,7 @@ describe('PageSlice', () => {
   });
 
   it('should delete a page (if more than 1)', () => {
-    store.getState().addPage('presentation');
+    store.getState().addPage();
     const pages = store.getState().pages;
     expect(pages.length).toBe(2);
 
