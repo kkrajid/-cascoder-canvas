@@ -3,7 +3,8 @@
   "buildCommand": "pnpm run build",
   "outputDirectory": "apps/playground/dist",
   "installCommand": "pnpm install",
-  "framework": "vite",
+  "framework": null,
+  "ignoreCommand": "",
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ],
