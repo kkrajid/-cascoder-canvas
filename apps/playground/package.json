@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "cd ../.. && pnpm --filter @cascoder/canvas-core run build && pnpm --filter @cascoder/canvas-react run build && cd apps/playground && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
