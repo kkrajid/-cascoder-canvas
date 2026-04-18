@@ -13,7 +13,7 @@ Thank you for considering contributing! This guide will help you get started.
 
 ```bash
 # Clone the repo
-git clone https://github.com/cascoder-ai/canvas.git
+git clone https://github.com/kkrajid/-cascoder-canvas.git
 cd canvas
 
 # Install dependencies
@@ -103,7 +103,7 @@ test(core): add SnapEngine threshold tests
 
 ## Reporting Issues
 
-Use [GitHub Issues](https://github.com/cascoder-ai/canvas/issues) with these templates:
+Use [GitHub Issues](https://github.com/kkrajid/-cascoder-canvas/issues) with these templates:
 
 - **Bug Report** — include reproduction steps, expected vs actual behavior
 - **Feature Request** — describe the use case, not just the solution

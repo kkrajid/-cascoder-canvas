@@ -37,14 +37,14 @@
     "poster-maker"
   ],
   "author": "Cascoder <hello@cascoder.com>",
-  "homepage": "https://github.com/cascoder-ai/canvas#readme",
+  "homepage": "https://github.com/kkrajid/-cascoder-canvas#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cascoder-ai/canvas.git",
+    "url": "https://github.com/kkrajid/-cascoder-canvas.git",
     "directory": "packages/canvas-react"
   },
   "bugs": {
-    "url": "https://github.com/cascoder-ai/canvas/issues"
+    "url": "https://github.com/kkrajid/-cascoder-canvas/issues"
   },
   "dependencies": {
     "@cascoder/canvas-core": "workspace:*",
