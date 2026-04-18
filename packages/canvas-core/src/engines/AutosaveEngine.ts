@@ -108,12 +108,8 @@ export class AutosaveEngine {
       // Save document
       await this.storage.save(this.projectId, doc);
 
-      // Save recovery data
-      await this.storage.saveRecovery({
-        timestamp: Date.now(),
-        projectId: this.projectId,
-        data: doc,
-      });
+      // Clear recovery data — document is safely saved
+      await this.storage.clearRecovery();
 
       // Update project metadata
       const meta = this.getProjectMeta();

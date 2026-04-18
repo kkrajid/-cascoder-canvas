@@ -27,6 +27,7 @@ export function EditorShell() {
   // Autosave state
   const [saveStatus, setSaveStatus] = useState<SaveStatus>('idle');
   const [showRecovery, setShowRecovery] = useState(false);
+  const recoveryCheckedRef = useRef(false);
   const [recoveryData, setRecoveryData] = useState<unknown>(null);
   const [projectId] = useState(() => {
     // Check URL for project ID, otherwise generate new
@@ -43,7 +44,7 @@ export function EditorShell() {
   // Autosave engine ref
   const autosaveRef = useRef<AutosaveEngine | null>(null);
 
-  // Initialize autosave
+  // Initialize autosave — only once per session
   useEffect(() => {
     const engine = new AutosaveEngine(
       storage,
@@ -66,9 +67,14 @@ export function EditorShell() {
         interval: 3000,
         onStatusChange: setSaveStatus,
         onRecoveryFound: async (data: unknown) => {
+          // Only show recovery once per browser session
+          if (recoveryCheckedRef.current || sessionStorage.getItem('cascoder_recovery_handled')) {
+            return false;
+          }
+          recoveryCheckedRef.current = true;
           setRecoveryData(data);
           setShowRecovery(true);
-          return false; // Don't auto-accept; wait for user choice
+          return false;
         },
       },
     );
@@ -79,7 +85,8 @@ export function EditorShell() {
     return () => {
       engine.destroy();
     };
-  }, [projectId, editor]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [projectId]);
 
   // Subscribe to DOCUMENT state changes only (not viewport/UI) to trigger autosave
   useEffect(() => {
@@ -112,12 +119,14 @@ export function EditorShell() {
     setShowRecovery(false);
     setRecoveryData(null);
     storage.clearRecovery();
+    sessionStorage.setItem('cascoder_recovery_handled', '1');
   }, [recoveryData, editor]);
 
   const handleDiscardRecovery = useCallback(() => {
     setShowRecovery(false);
     setRecoveryData(null);
     storage.clearRecovery();
+    sessionStorage.setItem('cascoder_recovery_handled', '1');
   }, []);
 
   // Handle project load from manager
