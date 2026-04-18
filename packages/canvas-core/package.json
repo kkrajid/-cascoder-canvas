@@ -1,0 +1,65 @@
+{
+  "name": "@cascoder/canvas-core",
+  "version": "0.1.0-alpha.1",
+  "description": "Core engine for @cascoder/canvas — scene graph, state management, history, snapping, alignment",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rimraf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "pnpm run build"
+  },
+  "keywords": [
+    "canvas",
+    "editor",
+    "design",
+    "react",
+    "konva",
+    "zustand",
+    "undo",
+    "redo",
+    "snap",
+    "alignment",
+    "multi-page"
+  ],
+  "author": "Cascoder <hello@cascoder.com>",
+  "homepage": "https://github.com/cascoder-ai/canvas#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cascoder-ai/canvas.git",
+    "directory": "packages/canvas-core"
+  },
+  "bugs": {
+    "url": "https://github.com/cascoder-ai/canvas/issues"
+  },
+  "dependencies": {
+    "nanoid": "^5.0.0",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "rimraf": "^6.0.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.7.0",
+    "vitest": "^2.0.0"
+  },
+  "sideEffects": false,
+  "license": "MIT"
+}

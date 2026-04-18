@@ -1,0 +1,68 @@
+{
+  "name": "@cascoder/canvas-react",
+  "version": "0.1.0-alpha.1",
+  "description": "React components, hooks, and Konva renderer for @cascoder/canvas design editor",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rimraf dist",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm run build"
+  },
+  "keywords": [
+    "canvas",
+    "editor",
+    "design",
+    "react",
+    "konva",
+    "canva",
+    "design-editor",
+    "image-editor",
+    "poster-maker"
+  ],
+  "author": "Cascoder <hello@cascoder.com>",
+  "homepage": "https://github.com/cascoder-ai/canvas#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cascoder-ai/canvas.git",
+    "directory": "packages/canvas-react"
+  },
+  "bugs": {
+    "url": "https://github.com/cascoder-ai/canvas/issues"
+  },
+  "dependencies": {
+    "@cascoder/canvas-core": "workspace:*",
+    "konva": "^9.3.0",
+    "react-konva": "^18.2.10",
+    "zustand": "^5.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "rimraf": "^6.0.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.7.0"
+  },
+  "sideEffects": false,
+  "license": "MIT"
+}

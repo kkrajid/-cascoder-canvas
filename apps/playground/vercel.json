@@ -1,0 +1,9 @@
+{
+  "buildCommand": "cd ../.. && pnpm install && pnpm --filter @cascoder/playground build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "installCommand": "echo 'Handled in buildCommand'",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
