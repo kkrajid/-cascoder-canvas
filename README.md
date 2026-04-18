@@ -7,15 +7,26 @@
 Build Canva-like design editors in your React application.
 
 [![CI](https://github.com/kkrajid/-cascoder-canvas/actions/workflows/ci.yml/badge.svg)](https://github.com/kkrajid/-cascoder-canvas/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/@cascoder/canvas-core.svg)](https://www.npmjs.com/package/@cascoder/canvas-core)
+[![npm version](https://img.shields.io/npm/v/@cascoder/canvas-core.svg?color=6366f1)](https://www.npmjs.com/package/@cascoder/canvas-core)
+[![npm downloads](https://img.shields.io/npm/dm/@cascoder/canvas-core.svg?color=22c55e)](https://www.npmjs.com/package/@cascoder/canvas-core)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg)](https://www.typescriptlang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178c6.svg)](https://www.typescriptlang.org/)
+[![Tests](https://img.shields.io/badge/Tests-73%20passing-22c55e.svg)](#)
+[![Bundle Size](https://img.shields.io/badge/Bundle-~40KB%20gzip-eab308.svg)](#packages)
 
-[Demo](https://cascoder-canvas.vercel.app) · [Docs](#documentation) · [Examples](#examples) · [Discord](#)
+[**🚀 Live Demo**](https://cascoder-canvas.vercel.app) · [**📖 Docs**](#documentation) · [**💬 Discord**](#) · [**📦 npm**](https://www.npmjs.com/package/@cascoder/canvas-core)
 
 </div>
 
 ---
+
+### Install
+
+```bash
+npm install @cascoder/canvas-core @cascoder/canvas-react
+```
+
+
 
 ## What is this?
 
